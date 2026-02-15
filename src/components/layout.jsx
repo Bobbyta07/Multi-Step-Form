@@ -23,8 +23,8 @@ function Layout(props) {
       </div>
 
       <div className="h-full w-full min-w-0">
-        { activeStep === 1 && <Main/>}
-        {activeStep === 2 && <h1> test the microphone</h1>}
+         <Main activeStep={activeStep}/>
+        
        
       </div>
     </div>

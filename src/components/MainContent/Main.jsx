@@ -3,16 +3,20 @@ import Form from "./Form";
 
 
 
-function Main(){
+
+
+
+function Main(props){
 
     return (
 
         <div className="flex flex-col m-4 w-full max-w-md  ">
+            
 
 
-            <Header />
+            <Header activeStep={props.activeStep} />
 
-            <Form />
+            <Form activeStep={props.activeStep} />
 
         </div>
     );
