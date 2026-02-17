@@ -40,7 +40,9 @@ function Form(props) {
         />
       </div>
 
-      <Button activeStep={props.activeStep} />
+      <div className="mt-20">
+        <Button activeStep={props.activeStep} />
+      </div>
     </div>
   );
 }
