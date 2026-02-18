@@ -4,6 +4,8 @@ import Plan from './Plan';
 import Swit from './Swit';
 import Button from './Button';
 import CheckboxList from './Add-Ons/Pick';
+import Finish from './Summary/Finish';
+import Total from './Summary/Total';
 
 function Main(props) {
   return (
@@ -22,6 +24,14 @@ function Main(props) {
       {props.activeStep === 3 && (
         <div>
           <CheckboxList />
+          <Button activeStep={props.activeStep} />
+        </div>
+      )}
+
+      {props.activeStep === 4 && (
+        <div>
+          <Finish />
+          <Total />
           <Button activeStep={props.activeStep} />
         </div>
       )}

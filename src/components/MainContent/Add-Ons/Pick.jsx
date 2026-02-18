@@ -63,9 +63,7 @@ function CheckboxList() {
           </div>
 
           <div>
-            <p className="font-Ubuntu font-normal text-purple-600">
-              {extension.price}
-            </p>
+            <p className="font-medium text-slate-700">{extension.price}</p>
           </div>
         </div>
       ))}

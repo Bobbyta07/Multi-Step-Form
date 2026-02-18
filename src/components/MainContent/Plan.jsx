@@ -48,9 +48,7 @@ function Plan() {
               <h3 className="font-Ubuntu font-bold text-sky-900">
                 {e.textHead}
               </h3>
-              <p className="text-gray-500 font-Ubuntu font-normal">
-                {e.textValue}
-              </p>
+              <p className="font-normal text-slate-700">{e.textValue}</p>
             </div>
           </div>
         );

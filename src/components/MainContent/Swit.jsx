@@ -11,7 +11,7 @@ function Swit() {
   return (
     <div className=" flex justify-center items-center gap-5 bg-gray-100 mt-6 rounded-md mb-20">
       <p
-        className={`font-Ubuntu  ${!checked ? 'text-purple-900 font-bold' : 'text-gray-500 font-normal'}`}
+        className={`font-Ubuntu  ${!checked ? 'font-medium text-slate-700' : 'text-gray-500 font-normal'}`}
       >
         Monthly
       </p>
@@ -22,7 +22,7 @@ function Swit() {
       />
 
       <p
-        className={`font-Ubuntu  ${checked ? 'text-purple-900 font-bold' : 'text-gray-500 font-normal'}`}
+        className={`font-Ubuntu  ${checked ? 'font-medium text-slate-700' : 'text-gray-500 font-normal'}`}
       >
         Yearly
       </p>
