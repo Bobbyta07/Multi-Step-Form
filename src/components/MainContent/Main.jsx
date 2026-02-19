@@ -12,19 +12,30 @@ function Main(props) {
     <div className="flex flex-col m-4 w-full max-w-md  ">
       <Header activeStep={props.activeStep} />
 
-      {props.activeStep === 1 && <Form activeStep={props.activeStep} />}
+      {props.activeStep === 1 && (
+        <Form
+          activeStep={props.activeStep}
+          setActiveStep={props.setActiveStep}
+        />
+      )}
       {props.activeStep === 2 && (
         <div>
           {' '}
           <Plan />
           <Swit />
-          <Button activeStep={props.activeStep} />
+          <Button
+            activeStep={props.activeStep}
+            setActiveStep={props.setActiveStep}
+          />
         </div>
       )}
       {props.activeStep === 3 && (
         <div>
           <CheckboxList />
-          <Button activeStep={props.activeStep} />
+          <Button
+            activeStep={props.activeStep}
+            setActiveStep={props.setActiveStep}
+          />
         </div>
       )}
 
@@ -32,7 +43,10 @@ function Main(props) {
         <div>
           <Finish />
           <Total />
-          <Button activeStep={props.activeStep} />
+          <Button
+            activeStep={props.activeStep}
+            setActiveStep={props.setActiveStep}
+          />
         </div>
       )}
     </div>
