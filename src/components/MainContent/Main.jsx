@@ -6,8 +6,14 @@ import Button from './Button';
 import CheckboxList from './Add-Ons/Pick';
 import Finish from './Summary/Finish';
 import Total from './Summary/Total';
+import { useState } from 'react';
 
 function Main(props) {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   return (
     <div className="flex flex-col m-4 w-full max-w-md  ">
       <Header activeStep={props.activeStep} />
@@ -21,8 +27,8 @@ function Main(props) {
       {props.activeStep === 2 && (
         <div>
           {' '}
-          <Plan />
-          <Swit />
+          <Plan checked={checked} onChange={handleChange} />
+          <Swit checked={checked} onChange={handleChange} />
           <Button
             activeStep={props.activeStep}
             setActiveStep={props.setActiveStep}
