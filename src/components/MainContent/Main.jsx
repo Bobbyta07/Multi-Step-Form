@@ -33,6 +33,8 @@ function Main(props) {
         <Form
           activeStep={props.activeStep}
           setActiveStep={props.setActiveStep}
+          formData={props.formData}
+          setFormData={props.setFormData}
         />
       )}
       {props.activeStep === 2 && (

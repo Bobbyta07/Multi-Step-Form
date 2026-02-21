@@ -1,51 +1,5 @@
 import { useState } from 'react';
-
-const plansText = [
-  {
-    id: 1,
-    img: '/images/icon-arcade.svg',
-    textHead: 'Arcade',
-    textValue: '$9/mo',
-  },
-
-  {
-    id: 2,
-    img: '/images/icon-advanced.svg',
-    textHead: 'Advanced',
-    textValue: '$12/mo',
-  },
-  {
-    id: 3,
-    img: '/images/icon-pro.svg',
-    textHead: 'Pro',
-    textValue: '$15/mo',
-  },
-];
-
-const yearlyPlans = [
-  {
-    id: 1,
-    img: '/images/icon-arcade.svg',
-    textHead: 'Arcade',
-    textValue: '$90/mo',
-    details: '2 months free',
-  },
-
-  {
-    id: 2,
-    img: '/images/icon-advanced.svg',
-    textHead: 'Advanced',
-    textValue: '$120/mo',
-    details: '2 months free',
-  },
-  {
-    id: 3,
-    img: '/images/icon-pro.svg',
-    textHead: 'Pro',
-    textValue: '$150/mo',
-    details: '2 months free',
-  },
-];
+import { plansText, yearlyPlans } from '../data';
 
 function Plan(props) {
   const plansToDisplay = props.checked ? yearlyPlans : plansText;
