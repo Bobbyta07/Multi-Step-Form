@@ -48,11 +48,13 @@ const yearlyPlans = [
 ];
 
 function Plan(props) {
-  const [selectedPlan, setSelectedPlan] = useState(null);
   const plansToDisplay = props.checked ? yearlyPlans : plansText;
 
   function updateBorder(id) {
-    setSelectedPlan(id);
+    props.setFormData((prevData) => ({
+      ...prevData,
+      selectedPlan: id,
+    }));
   }
 
   return (
@@ -63,7 +65,9 @@ function Plan(props) {
             key={e.id}
             onClick={() => updateBorder(e.id)}
             className={`flex flex-col justify-start gap-9 w-1/3 p-3 rounded-md shadow-sm border ${
-              selectedPlan === e.id ? 'border-purple-500' : 'border-gray-300'
+              props.formData.selectedPlan === e.id
+                ? 'border-purple-500'
+                : 'border-gray-300'
             }`}
           >
             <div>

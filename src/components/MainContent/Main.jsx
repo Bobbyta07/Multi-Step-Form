@@ -1,5 +1,5 @@
 import Header from './Header';
-import Form from './Form';
+import Form from './Personal/Form';
 import Plan from './Plan';
 import Swit from './Swit';
 import Button from './Button';
@@ -9,10 +9,21 @@ import Total from './Summary/Total';
 import { useState } from 'react';
 
 function Main(props) {
-  const [checked, setChecked] = useState(false);
-
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    props.setFormData((prevData) => ({
+      ...prevData,
+      checked: event.target.checked,
+    }));
+
+    props.checked
+      ? props.setFormData((prevData) => ({
+          ...prevData,
+          plan: 'yearly',
+        }))
+      : props.setFormData((prevData) => ({
+          ...prevData,
+          plan: 'monthly',
+        }));
   };
   return (
     <div className="flex flex-col m-4 w-full max-w-md  ">
@@ -27,8 +38,13 @@ function Main(props) {
       {props.activeStep === 2 && (
         <div>
           {' '}
-          <Plan checked={checked} onChange={handleChange} />
-          <Swit checked={checked} onChange={handleChange} />
+          <Plan
+            checked={props.formData.checked}
+            onChange={handleChange}
+            formData={props.formData}
+            setFormData={props.setFormData}
+          />
+          <Swit checked={props.formData.checked} onChange={handleChange} />
           <Button
             activeStep={props.activeStep}
             setActiveStep={props.setActiveStep}
@@ -37,7 +53,10 @@ function Main(props) {
       )}
       {props.activeStep === 3 && (
         <div>
-          <CheckboxList />
+          <CheckboxList
+            formData={props.formData}
+            setFormData={props.setFormData}
+          />
           <Button
             activeStep={props.activeStep}
             setActiveStep={props.setActiveStep}
@@ -47,8 +66,8 @@ function Main(props) {
 
       {props.activeStep === 4 && (
         <div>
-          <Finish />
-          <Total />
+          <Finish formData={props.formData} />
+          <Total formData={props.formData} />
           <Button
             activeStep={props.activeStep}
             setActiveStep={props.setActiveStep}

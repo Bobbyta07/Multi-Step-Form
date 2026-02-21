@@ -16,7 +16,12 @@ function Layout(props) {
       </div>
 
       <div className="h-full w-full min-w-0">
-        <Main activeStep={activeStep} setActiveStep={setActiveStep} />
+        <Main
+          activeStep={activeStep}
+          setActiveStep={setActiveStep}
+          formData={props.formData}
+          setFormData={props.setFormData}
+        />
       </div>
     </div>
   );

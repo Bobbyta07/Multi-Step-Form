@@ -22,17 +22,21 @@ const extensions = [
   },
 ];
 
-function CheckboxList() {
+function CheckboxList(props) {
   // store selected ids
-  const [selected, setSelected] = useState([]);
 
   const handleChange = (id) => {
-    setSelected(
-      (prev) =>
-        prev.includes(id)
-          ? prev.filter((item) => item !== id) // remove if already selected
-          : [...prev, id] // add if not selected
-    );
+    props.setFormData((prevData) => {
+      const isSelected = prevData.addOns.includes(id);
+      const updatedAddOns = isSelected
+        ? prevData.addOns.filter((item) => item !== id)
+        : [...prevData.addOns, id];
+
+      return {
+        ...prevData,
+        addOns: updatedAddOns,
+      };
+    });
   };
 
   return (
@@ -40,11 +44,11 @@ function CheckboxList() {
       {extensions.map((extension) => (
         <div
           key={extension.id}
-          className={`flex justify-between items-center border ${selected.includes(extension.id) ? 'border-blue-800 bg-gray-100' : 'border-gray-300'} rounded-lg p-4 mt-6`}
+          className={`flex justify-between items-center border ${props.formData.addOns.includes(extension.id) ? 'border-blue-800 bg-gray-100' : 'border-gray-300'} rounded-lg p-4 mt-6`}
         >
           <div className="flex gap-3">
             <Checkbox
-              checked={selected.includes(extension.id)}
+              checked={props.formData.addOns.includes(extension.id)}
               onChange={() => handleChange(extension.id)}
               sx={{
                 color: '#1A2CA3',
