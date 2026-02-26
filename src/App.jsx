@@ -10,6 +10,7 @@ function App() {
     addOns: [], // array of selected add-ons
     checked: false, // for the switch component
     selectedPlan: 1, // to track the selected plan
+    submitted: false,
   });
 
   return (

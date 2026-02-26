@@ -3,9 +3,25 @@ import { useState } from 'react';
 function Button(props) {
   function handleClick() {
     if (props.activeStep === 4) {
-      alert('Form submitted!');
+      props.setFormData((prevData) => ({
+        ...prevData,
+        submitted: true,
+      }));
 
-      props.setActiveStep(1);
+      setTimeout(() => {
+        props.setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          planType: 1, // arcade, advanced, pro
+          addOns: [], // array of selected add-ons
+          checked: false, // for the switch component
+          selectedPlan: 1, // to track the selected plan
+          submitted: false,
+        });
+
+        props.setActiveStep(1);
+      }, 3000);
     } else {
       props.setActiveStep(props.activeStep + 1);
     }

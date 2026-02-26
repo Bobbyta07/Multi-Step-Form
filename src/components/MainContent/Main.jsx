@@ -5,8 +5,8 @@ import Swit from './Swit';
 import Button from './Button';
 import CheckboxList from './Add-Ons/Pick';
 import Finish from './Summary/Finish';
-import Total from './Summary/Total';
 import { useState } from 'react';
+import ThankYou from './Thanks/ThankYou';
 
 function Main(props) {
   const handleChange = (event) => {
@@ -27,7 +27,9 @@ function Main(props) {
   };
   return (
     <div className="flex flex-col m-4 w-full max-w-md  ">
-      <Header activeStep={props.activeStep} />
+      {props.formData.submitted ? null : (
+        <Header activeStep={props.activeStep} />
+      )}
 
       {props.activeStep === 1 && (
         <Form
@@ -50,6 +52,7 @@ function Main(props) {
           <Button
             activeStep={props.activeStep}
             setActiveStep={props.setActiveStep}
+            setFormData={props.setFormData}
           />
         </div>
       )}
@@ -62,20 +65,24 @@ function Main(props) {
           <Button
             activeStep={props.activeStep}
             setActiveStep={props.setActiveStep}
+            setFormData={props.setFormData}
           />
         </div>
       )}
 
-      {props.activeStep === 4 && (
-        <div>
-          <Finish formData={props.formData} />
-          <Total formData={props.formData} />
-          <Button
-            activeStep={props.activeStep}
-            setActiveStep={props.setActiveStep}
-          />
-        </div>
-      )}
+      {props.activeStep === 4 &&
+        (props.formData.submitted ? (
+          <ThankYou />
+        ) : (
+          <div>
+            <Finish formData={props.formData} />
+            <Button
+              activeStep={props.activeStep}
+              setActiveStep={props.setActiveStep}
+              setFormData={props.setFormData}
+            />
+          </div>
+        ))}
     </div>
   );
 }

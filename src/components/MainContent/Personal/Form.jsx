@@ -46,6 +46,7 @@ function Form(props) {
         <Button
           activeStep={props.activeStep}
           setActiveStep={props.setActiveStep}
+          setFormData={props.setFormData}
         />
       </div>
     </div>
