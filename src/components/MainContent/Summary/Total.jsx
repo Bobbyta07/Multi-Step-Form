@@ -8,7 +8,7 @@ function Total(props) {
   const totalPrice = planPrice + addOnsTotal;
 
   return (
-    <div className="flex justify-between items-center mt-6 mb-20 p-4">
+    <div className="flex justify-between items-center mt-6 mb-10 md:mb-20 p-4">
       <p className="font-Ubuntu font-medium text-slate-500">
         Total (per {props.checked ? 'year' : 'month'})
       </p>

@@ -20,11 +20,11 @@ function CheckboxList(props) {
   };
 
   return (
-    <div className="mb-20">
+    <div className="mb:10 md:mb-20">
       {extensions.map((extension) => (
         <div
           key={extension.id}
-          className={`flex justify-between items-center border ${props.formData.addOns.includes(extension.id) ? 'border-blue-800 bg-gray-100' : 'border-gray-300'} rounded-lg p-4 mt-6`}
+          className={`flex justify-between items-center border ${props.formData.addOns.includes(extension.id) ? 'border-blue-800 bg-gray-100' : 'border-gray-300'} rounded-lg p-2 md:p-4 mt-6`}
         >
           <div className="flex gap-3">
             <Checkbox

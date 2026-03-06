@@ -1,6 +1,6 @@
 function ThankYou() {
   return (
-    <div className="flex flex-col items-center gap-4 mb-20">
+    <div className=" flex flex-col items-center gap-4 mb-20 mt-24">
       <img src="/images/icon-thank-you.svg" alt="Thank You" />
       <h2 className="font-Ubuntu font-bold text-2xl text-blue-950">
         Thank you!

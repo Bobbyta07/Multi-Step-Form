@@ -28,7 +28,7 @@ function Form(props) {
     }));
   }
   return (
-    <div className="flex flex-col gap-4 mt-6 w-full">
+    <div>
       {fields.map((field) => (
         <Input
           key={field.id}
@@ -41,14 +41,6 @@ function Form(props) {
           onChange={handleChange}
         />
       ))}
-
-      <div className="mt-20">
-        <Button
-          activeStep={props.activeStep}
-          setActiveStep={props.setActiveStep}
-          setFormData={props.setFormData}
-        />
-      </div>
     </div>
   );
 }

@@ -12,7 +12,7 @@ function Plan(props) {
   }
 
   return (
-    <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="mt-5 md:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:p-3">
       {plansToDisplay.map((e) => {
         const isSelected = props.formData.selectedPlan === e.id;
 
@@ -21,10 +21,12 @@ function Plan(props) {
             key={e.id}
             onClick={() => updateBorder(e.id)}
             className={`
+              flex justify-between items-center md:block
               group cursor-pointer relative overflow-hidden
-              rounded-2xl p-6
+              rounded-2xl p-2 md:p-6
               transition-all duration-300 ease-out
               border
+              mt-5
               ${
                 isSelected
                   ? 'border-purple-600 shadow-xl scale-[1.03]'

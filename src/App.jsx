@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="bg-white min-h-screen flex items-center justify-center">
-      <div className="bg-white w-1/2 p-6 border border-gray-300 rounded-lg shadow-lg">
+      <div className="bg-white w-1/2  md:p-3 md:border md:border-gray-300 md:rounded-lg md:shadow-lg ">
         <Layout formData={formData} setFormData={setFormData} />
       </div>
     </div>

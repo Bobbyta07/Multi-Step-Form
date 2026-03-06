@@ -25,7 +25,10 @@ function Finish(props) {
                 ({props.formData.checked ? 'Yearly' : 'Monthly'})
               </span>
             </h3>
-            <p className="text-sm font-medium text-slate-500 underline cursor-pointer hover:text-slate-700 transition">
+            <p
+              onClick={() => props.setActiveStep(2)}
+              className="text-sm font-medium text-slate-500 underline cursor-pointer hover:text-slate-700 transition"
+            >
               Change
             </p>
           </div>
